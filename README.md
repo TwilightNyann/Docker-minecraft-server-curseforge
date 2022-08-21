@@ -1,2 +1,2 @@
 # Docker-minecraft-server-curseforge
-minecraft docker server with cursforge modpack
+minecraft docker server with curseforge modpack
