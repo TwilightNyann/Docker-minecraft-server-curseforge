@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:java8
+    volumes:
+      - minecraftdata:/data
+      - ./plugins:/plugins
+      - ./modpacks:/modpacks
+    ports:
+      - 25565:25565
+    environment:
+      VERSION : 1.16.5
+      EULA: "TRUE"
+      TYPE: "CURSEFORGE"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      SKIP_SERVER_PROPERTIES: "TRUE"
+      ONLINE_MODE: "FALSE"
+      USE_MODPACK_START_SCRIPT: "FALSE"
+      #ICON : icon.png
+      OVERRIDE_ICON: "FALSE"
+      ENABLE_RCON: "TRUE"
+      RCON_PASSWORD: "testing"
+      MAX_PLAYERS: "50"
+      CF_SERVER_MOD : https://mediafiles.forgecdn.net/files/3871/784/Better+MC+Server+Pack+%5bFORGE%5d+v57.5.zip
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+volumes:
+  minecraftdata: 
+    external: true
+  
